@@ -1,0 +1,27 @@
+{
+    "name": "HtmlApp_Media",
+    "version": "0.1.0",
+    "private": true,
+    "devDependencies": {
+        "svn-spawn"   : "~0.1.4",
+        "es6-promise" : "~0.1.1",
+        "tar.gz"      : "~0.1.1"
+    },
+    "products" : {
+        "default" : "Html-Media.tar.gz"
+    },
+    "remoteModuleDefault" : {
+        "host"   : "http://prebuild.targetv.com/HtmlWidget/",
+        "method" : "GET",
+        "auth"   : "kava:K1G35D",
+        "dir"    : "remote_module",
+        "ext"    : ".tar.gz"
+    },
+    "remoteModule":[{
+        "name"    : "core",
+        "version" : "1.1.0"
+    },{
+        "name"    : "core-tools",
+        "version" : "0.1.1"
+    }]
+}
