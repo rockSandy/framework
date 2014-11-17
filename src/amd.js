@@ -7,13 +7,13 @@
  * }
  */
 ;(function(global){
+    'use static';
     var $d  = global.document;
     var $a ;
     
     var modules = {};
     var caches  = [];
-    var root    = ''; 
-    var mgrid   = 0;
+    var root    = '';
     var currPath = '';
 
     function isFunc(v){
@@ -74,6 +74,9 @@
                 up--;
             }
         }
+        for(;up>0;up--){
+            pathArr.unshift('..');
+        }
         return pathArr.join('/');
     }
 
@@ -109,7 +112,8 @@
     }
 
     var DepsMgr = function(deps,callback){
-        this.id = mgrid+++'_DEPS_MGR';
+        this.id = new Date().getTime();
+        currPath = root;//reset currPath
         define(this.id,deps,callback);
         this.count = 0;
         this.parseModule();
